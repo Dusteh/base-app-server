@@ -1,8 +1,9 @@
-## Invy: Personal inventory management
+## Base-App-Server 
+A simple project to keep myself current with clojure
 
 
 ### Startup
-Invy service starts in dev mode by default when not supplying startup arguments 
+Service starts in dev mode by default when not supplying startup arguments 
 
 #### To Run:
 * Start dev support services via 
