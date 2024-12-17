@@ -1,0 +1,35 @@
+---
+Configuration:
+  status: error
+  name: Invy Dev
+  packages: "io.opentelemetry.instrumentation.log4j.appender.v2_17"
+  properties:
+  thresholdFilter:
+    level: debug
+  appenders:
+    OpenTelemetry:
+      name: OTEL
+      captureMapMessageAttributes: true
+      captureExperimentalAttributes: true
+    Console:
+      name: CONSOLE
+      target: SYSTEM_OUT
+      PatternLayout:
+        Pattern: "%C{-10}%m%n"
+  Loggers:
+    logger:
+      - name: invy
+        level: debug
+        additivity: false
+        AppenderRef:
+          - ref: CONSOLE
+          - ref: OTEL
+      - name: io.opentelemetry
+        level: fatal 
+        AppenderRef:
+           - ref: CONSOLE
+    Root:
+      level: error 
+      AppenderRef:
+        - ref: CONSOLE
+        - ref: OTEL

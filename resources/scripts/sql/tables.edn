@@ -1,0 +1,31 @@
+[{:name "users"
+  :columns [{:col-name "id" :col-dt "uuid PRIMARY KEY DEFAULT gen_random_uuid()"}
+            {:col-name "email" :col-dt "text"}
+            {:col-name "password_hash" :col-dt "text"}
+            {:col-name "details" :col-dt "jsonb"}
+            {:col-name "created_at" :col-dt "timestamp DEFAULT now()"}
+            {:col-name "updated_at" :col-dt "timestamp DEFAULT now()"}]
+  }
+ {:name "items"
+  :columns [{:col-name "id" :col-dt "uuid PRIMARY KEY DEFAULT gen_random_uuid()"}
+            {:col-name "name" :col-dt "text"}
+            {:col-name "details" :col-dt "jsonb"}
+            {:col-name "created_at" :col-dt "timestamp DEFAULT now()"}
+            {:col-name "updated_at" :col-dt "timestamp DEFAULT now()"}]
+  }
+ {:name "user_items"
+  :columns [{:col-name "id" :col-dt "uuid PRIMARY KEY DEFAULT gen_random_uuid()"}
+            {:col-name "user_id" :col-dt "uuid FOREIGN KEY REFERENCES users(id)"}
+            {:col-name "item_id" :col-dt "uuid FOREIGN KEY REFERENCES items(id)"}
+            {:col-name "details" :col-dt "jsonb"}
+            {:col-name "created_at" :col-dt "timestamp DEFAULT now()"}
+            {:col-name "updated_at" :col-dt "timestamp DEFAULT now()"}] 
+  }
+ {:name "recpies"
+  :columns [{:col-name "id" :col-dt "uuid PRIMARY KEY DEFAULT gen_random_uuid()"}
+            {:col-name "name" :col-dt "text"}
+            {:col-name "details" :col-dt "jsonb"}
+            {:col-name "created_at" :col-dt "timestamp DEFAULT now()"}
+            {:col-name "updated_at" :col-dt "timestamp DEFAULT now()"}]
+  }
+ ]

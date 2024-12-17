@@ -1,0 +1,10 @@
+#!/bin/sh
+
+PH=$(echo 'admin123' | docker run --rm -i datalust/seq config hash)
+
+docker run \
+  -e ACCEPT_EULA=Y \
+  -e SEQ_FIRSTRUN_ADMINPASSWORDHASH="$PH" \
+  -p 80:80 \
+  -p 5341:5341 \
+  datalust/seq

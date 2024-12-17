@@ -1,0 +1,9 @@
+#!/bin/sh
+
+docker run --rm --name jaeger \
+  -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
+  -p 16686:16686           \
+  -p 4318:4318             \
+  jaegertracing/all-in-one:1.57 \
+  --collector.otlp.enabled=true
+
